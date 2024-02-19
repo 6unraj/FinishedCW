@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ChatServer {
-    private static final int SERVER_PORT = 12345;
+    private static final int SERVER_PORT = 69;
     private static final Map<String, ClientInfo> clients = new ConcurrentHashMap<>();
     private static String coordinatorId = null;
 
