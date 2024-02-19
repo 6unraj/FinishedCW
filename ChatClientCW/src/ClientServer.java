@@ -4,13 +4,18 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class ClientServer {
-    private static final String SERVER_ADDRESS = "localhost";
-    private static final int SERVER_PORT = 12345;
-
     public static void main(String[] args) {
-        try (Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for the server's IP address and port
+        System.out.print("Enter the server IP address: ");
+        String serverAddress = scanner.nextLine();
+
+        System.out.print("Enter the server port: ");
+        int serverPort = Integer.parseInt(scanner.nextLine());
+
+        try (Socket socket = new Socket(serverAddress, serverPort);
              Scanner serverScanner = new Scanner(socket.getInputStream());
-             Scanner scanner = new Scanner(System.in);
              PrintWriter writer = new PrintWriter(socket.getOutputStream(), true)) {
 
             System.out.print("Enter your ID: ");
